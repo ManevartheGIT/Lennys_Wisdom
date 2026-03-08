@@ -60,7 +60,7 @@ Add the following to your Anti-Gravity MCP configuration file (usually found in 
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/ananthavijaya/Library/CloudStorage/GoogleDrive-ananthavijaya@gmail.com/My Drive/Projects/Lennys_Wisdom",
+        "<ABSOLUTE_PATH_TO_PROJECT_ROOT>",
         "run",
         "python",
         "-m",
