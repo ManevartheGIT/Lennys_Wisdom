@@ -55,3 +55,6 @@ htmlcov/
 # mypy / ruff / linting
 .mypy_cache/
 .ruff_cache/
+
+# Progress made before restarting next session:
+progress.md
