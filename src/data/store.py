@@ -1,4 +1,5 @@
 import sqlite_utils
+import sqlite3
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 from src.models.schemas import EpisodeSummary, Transcript, Segment
@@ -9,7 +10,9 @@ class SQLiteStore(BaseStore):
         self.db_path = Path(db_path)
         # Create directory if it doesn't exist
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        self.db = sqlite_utils.Database(str(self.db_path))
+        # Create a connection that can be used across multiple threads (standard for MCP tool servers)
+        conn = sqlite3.connect(str(self.db_path), check_same_thread=False)
+        self.db = sqlite_utils.Database(conn)
 
     def initialize(self):
         """Setup tables and FTS indexing."""
