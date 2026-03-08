@@ -31,11 +31,12 @@ env/
 *.db
 *.sqlite
 *.sqlite3
+!data/lenny.db
 
 # Project-specific data cache
 data/transcripts/
 data/articles/
-data/lenny.db
+# data/lenny.db is now allowed
 
 # IDEs
 .vscode/
