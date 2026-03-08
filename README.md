@@ -1,8 +1,11 @@
-# 🎙️ Lenny's Wisdom MCP Server
+# 🎙️ Lenny's Wisdom: The Definitive MCP Server for Lenny's Podcast
 
-A high-performance [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server providing AI assistants with structured access to **Lenny Rachitsky's** podcast transcripts, guest insights, and product/growth frameworks.
+[![MCP](https://img.shields.io/badge/MCP-1.0-blue)](https://modelcontextprotocol.io)
+[![Python](https://img.shields.io/badge/Python-3.12-green)](https://www.python.org/)
 
-Built with **Python**, **FastMCP**, and **SQLite (FTS5)**. Optimized for local use and CI/CD-driven "Build-Time Database" deployments.
+**Lenny's Wisdom** is the most comprehensive **Model Context Protocol (MCP) server** designed specifically for **Lenny's Podcast** and the **Lenny's Newsletter** ecosystem. 
+
+Search through over **300+ high-quality transcripts** featuring world-class product leaders, growth experts, and founders. Whether you are using **Claude Desktop**, **Cursor**, or **Anti-Gravity**, this server provides instant, structured access to the world's best product management and growth wisdom.
 
 ---
 
@@ -50,9 +53,23 @@ uv run python -m src.data.orchestrator
 
 ## 🔌 MCP Configuration
 
-### **Anti-Gravity Configuration**
-Add the following to your Anti-Gravity MCP configuration file (usually found in your settings or `mcp_config.json`):
+### **Anti-Gravity / Cursor Configuration**
 
+The configuration is identical for both **Anti-Gravity** and **Cursor**. 
+
+#### **Cursor Setup:**
+1. Open **Cursor Settings** (Settings icon or `Cmd + Shift + J`).
+2. Navigate to **Features** > **MCP**.
+3. Click **+ Add New MCP Server**.
+4. Enter the following details:
+   - **Name:** `lennys-wisdom`
+   - **Type:** `command`
+   - **Command:**
+     ```bash
+     uv --directory "<ABSOLUTE_PATH_TO_PROJECT_ROOT>" run python -m src.server
+     ```
+
+#### **JSON Configuration (Claude Desktop / mcp_config.json):**
 ```json
 {
   "mcpServers": {
@@ -71,8 +88,6 @@ Add the following to your Anti-Gravity MCP configuration file (usually found in 
 }
 ```
 
-### **Claude Desktop / Cursor**
-The configuration is identical to the above. Ensure the path to the project directory is absolute.
 
 ---
 
